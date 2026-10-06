@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- Shastra Platform - Phase 2: Authentication -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign in to Shastra – your Vivekananda-inspired growth platform." />
+  <title>Sign In – Shastra</title>
+
+  <!-- Paths are relative to /pages/ so use ../ to reach root -->
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+
+<!-- Fixed navbar (same brand, minimal links) -->
+<header>
+  <nav class="navbar" aria-label="Main navigation" style="position:fixed;top:0;left:0;right:0;z-index:200;height:70px;background:rgba(15,23,42,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:100%;">
+      <a href="../index.html" class="navbar-brand left-brand" aria-label="Shastra home">
+        <span class="brand-om" aria-hidden="true">ॐ</span>
+        <span class="brand-name">Sha<span>stra</span></span>
+      </a>
+      <a href="../index.html" class="btn btn-ghost" style="color:rgba(255,255,255,0.6);font-size:0.875rem;">← Back to home</a>
+    </div>
+  </nav>
+</header>
+
+<main class="login-page" style="padding-top:70px;">
+
+  <!-- ── Left panel ──────────────────────────────────────────────────────── -->
+  <aside class="login-panel-left" aria-hidden="true">
+    <div class="left-brand">
+      <span class="brand-om">ॐ</span>
+      <span class="brand-name">Sha<span>stra</span></span>
+    </div>
+
+    <div class="left-content">
+      <span class="left-om-large">ॐ</span>
+      <h2 class="left-headline">
+        Measure <span>what matters.</span><br />
+        Grow what's real.
+      </h2>
+      <blockquote class="left-quote">
+        <p>
+          "Take up one idea. Make that one idea your life —
+          think of it, dream of it, live on that idea.
+          Let the brain, muscles, nerves, every part of your body
+          be full of that idea, and just leave every other idea alone.
+          This is the way to success."
+        </p>
+        <cite>— Swami Vivekananda</cite>
+      </blockquote>
+    </div>
+
+    <p class="left-footer">Shastra Platform &copy; <span id="left-year"></span></p>
+  </aside>
+
+  <!-- ── Right panel – login form ────────────────────────────────────────── -->
+  <section class="login-panel-right" aria-labelledby="login-heading">
+    <div class="login-form-wrap">
+
+      <h1 id="login-heading">Welcome back</h1>
+      <p class="form-subtitle">Sign in to continue your journey</p>
+
+      <!-- Error / success banners -->
+      <div id="login-error"   class="form-error"   hidden role="alert" aria-live="assertive">
+        <span aria-hidden="true">✕</span>
+        <span></span>
+      </div>
+      <div id="login-success" class="form-success" hidden role="status" aria-live="polite">
+        <span aria-hidden="true">✓</span>
+        <span></span>
+      </div>
+
+      <form id="login-form" novalidate autocomplete="on">
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="login-email">Email address</label>
+          <div class="input-wrap">
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              class="form-input"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+              aria-required="true"
+            />
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="input-wrap">
+            <input
+              type="password"
+              id="login-password"
+              name="password"
+              class="form-input"
+              placeholder="Min. 6 characters"
+              autocomplete="current-password"
+              required
+              aria-required="true"
+              minlength="6"
+            />
+            <button
+              type="button"
+              class="password-toggle"
+              id="toggle-password"
+              aria-label="Show password"
+            >👁</button>
+          </div>
+        </div>
+
+        <!-- Remember me + Forgot password -->
+        <div class="form-row">
+          <label class="remember-label">
+            <input type="checkbox" name="remember" id="remember-me" />
+            Remember me
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" id="login-submit" class="btn btn-primary btn-login">
+          Sign In
+        </button>
+
+      </form>
+
+      <div class="form-divider">or</div>
+
+      <p class="form-footer">
+        Don't have an account?
+        <a href="register.html">Sign up here</a>
+      </p>
+
+      <!-- Test credentials hint (remove in production) -->
+      <p style="margin-top:2rem;padding:0.75rem 1rem;background:#f1f5f9;border-radius:8px;font-size:0.75rem;color:#64748b;line-height:1.6;">
+        <strong style="color:#334155;">Test credentials</strong><br />
+        student@shastra.com / pass123<br />
+        teacher@shastra.com / pass123
+      </p>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script>
+  // Set footer year
+  const el = document.getElementById('left-year');
+  if (el) el.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
