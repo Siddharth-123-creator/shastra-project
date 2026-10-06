@@ -1,0 +1,113 @@
+/* Shastra Platform - Phase 1: Foundation */
+/* responsive.css – mobile-first breakpoint overrides */
+
+/* ── Mobile (default, < 480px) is handled in theme.css / homepage.css ──────── */
+
+/* ── Small tablet (≥ 480px) ─────────────────────────────────────────────────── */
+@media (min-width: 480px) {
+  .hero-title {
+    font-size: var(--text-6xl);
+  }
+}
+
+/* ── Tablet (≥ 768px) ───────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .hero-portrait {
+    width: 200px;
+    height: 200px;
+  }
+
+  .om-symbol {
+    font-size: 6rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .quote-text {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* ── Desktop (≥ 1024px) ─────────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+  }
+}
+
+/* ── Wide desktop (≥ 1280px) ────────────────────────────────────────────────── */
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .om-symbol,
+  .hero-scroll-hint {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Hamburger menu for mobile nav ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: var(--maroon-dark);
+    padding: 1rem;
+    gap: 0.75rem;
+    box-shadow: 0 4px 16px var(--shadow-strong);
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.25rem;
+  }
+
+  .navbar-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--cream);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .navbar-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .navbar-hamburger.active span:nth-child(2) { opacity: 0; }
+  .navbar-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+@media (min-width: 601px) {
+  .navbar-hamburger {
+    display: none;
+  }
+}

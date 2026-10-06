@@ -1,0 +1,163 @@
+/* Shastra Platform - Phase 1: Foundation */
+/* theme.css – design tokens, typography, global resets */
+
+/* ── Google Fonts ──────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Hind:wght@300;400;500;600&display=swap');
+
+/* ── Color tokens ──────────────────────────────────────────────────────────── */
+:root {
+  --saffron:        #e07020;
+  --saffron-light:  #f0903a;
+  --saffron-dark:   #b85a10;
+  --maroon:         #6b1a2a;
+  --maroon-light:   #8b2a3a;
+  --maroon-dark:    #4a0f1c;
+  --gold:           #c8941a;
+  --gold-light:     #e0b030;
+  --cream:          #f5e8cc;
+  --cream-dark:     #e8d4a8;
+  --text-dark:      #1c1207;
+  --text-mid:       #3d2b10;
+  --text-light:     #f5e8cc;
+  --surface:        #fffbf3;
+  --surface-alt:    #fdf3e0;
+  --shadow:         rgba(28, 18, 7, 0.15);
+  --shadow-strong:  rgba(28, 18, 7, 0.35);
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cream:       #2a1e0e;
+    --cream-dark:  #1e1508;
+    --surface:     #1e1508;
+    --surface-alt: #251b0f;
+    --text-dark:   #f5e8cc;
+    --text-mid:    #d4b880;
+    --text-light:  #1c1207;
+    --shadow:      rgba(0, 0, 0, 0.4);
+    --shadow-strong: rgba(0, 0, 0, 0.7);
+  }
+}
+
+:root[data-theme="dark"] {
+  --cream:       #2a1e0e;
+  --cream-dark:  #1e1508;
+  --surface:     #1e1508;
+  --surface-alt: #251b0f;
+  --text-dark:   #f5e8cc;
+  --text-mid:    #d4b880;
+  --text-light:  #1c1207;
+  --shadow:      rgba(0, 0, 0, 0.4);
+  --shadow-strong: rgba(0, 0, 0, 0.7);
+}
+
+/* ── Typography ─────────────────────────────────────────────────────────────── */
+:root {
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Hind', system-ui, sans-serif;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+}
+
+/* ── Reset / base ───────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--text-dark);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  color: var(--maroon);
+}
+
+a {
+  color: var(--saffron);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--saffron-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Utility classes ─────────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--saffron);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(224, 112, 32, 0.35);
+}
+
+.btn-primary:hover {
+  background-color: var(--saffron-dark);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(224, 112, 32, 0.5);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--saffron);
+  border: 2px solid var(--saffron);
+}
+
+.btn-outline:hover {
+  background-color: var(--saffron);
+  color: #fff;
+}

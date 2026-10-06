@@ -1,0 +1,44 @@
+<!-- Shastra Platform - Phase 1: Foundation -->
+<!-- Stylised Vivekananda silhouette SVG placeholder -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Swami Vivekananda portrait illustration">
+  <!-- Circular background -->
+  <circle cx="100" cy="100" r="98" fill="#4a0f1c" stroke="#c8941a" stroke-width="3"/>
+
+  <!-- Turban -->
+  <ellipse cx="100" cy="60" rx="38" ry="18" fill="#c8941a"/>
+  <rect x="68" y="52" width="64" height="18" rx="4" fill="#e07020"/>
+  <ellipse cx="100" cy="53" rx="32" ry="12" fill="#c8941a"/>
+  <!-- Turban fold lines -->
+  <path d="M72 58 Q100 50 128 58" stroke="#6b1a2a" stroke-width="1.5" fill="none"/>
+  <path d="M68 63 Q100 56 132 63" stroke="#6b1a2a" stroke-width="1" fill="none"/>
+
+  <!-- Face -->
+  <ellipse cx="100" cy="88" rx="28" ry="32" fill="#d4956a"/>
+
+  <!-- Eyes -->
+  <ellipse cx="90" cy="83" rx="5" ry="4" fill="#1c1207"/>
+  <ellipse cx="110" cy="83" rx="5" ry="4" fill="#1c1207"/>
+  <circle cx="91.5" cy="82" r="1.5" fill="#fff" opacity="0.7"/>
+  <circle cx="111.5" cy="82" r="1.5" fill="#fff" opacity="0.7"/>
+
+  <!-- Eyebrows -->
+  <path d="M84 77 Q90 74 96 77" stroke="#4a2010" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M104 77 Q110 74 116 77" stroke="#4a2010" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Nose -->
+  <path d="M100 84 Q97 92 100 95 Q103 92 100 84" fill="#b87050" opacity="0.6"/>
+
+  <!-- Mouth -->
+  <path d="M92 102 Q100 108 108 102" stroke="#8b4030" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Beard/moustache -->
+  <path d="M88 97 Q100 100 112 97 Q108 108 100 112 Q92 108 88 97Z" fill="#2a1a0a" opacity="0.8"/>
+
+  <!-- Robe / shoulders -->
+  <path d="M40 160 Q60 115 72 118 Q100 122 128 118 Q140 115 160 160Z" fill="#e07020"/>
+  <!-- Robe shading -->
+  <path d="M72 118 Q100 135 128 118 Q120 145 100 150 Q80 145 72 118Z" fill="#b85a10" opacity="0.5"/>
+
+  <!-- Om symbol at bottom -->
+  <text x="100" y="185" font-family="serif" font-size="16" text-anchor="middle" fill="#c8941a" opacity="0.8">ॐ</text>
+</svg>
