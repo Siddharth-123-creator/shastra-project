@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- Shastra Platform - Phase 3: Student Dashboard -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shastra student dashboard – your five growth metrics." />
+  <title>Dashboard – Shastra</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body>
+
+<!-- Mobile top bar -->
+<div class="mobile-topbar">
+  <span class="brand-name">Sha<span>stra</span></span>
+  <button class="hamburger-btn" id="sidebar-toggle" aria-label="Open sidebar">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<!-- Sidebar overlay (mobile backdrop) -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  SIDEBAR                                                                -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<aside class="sidebar" id="sidebar" aria-label="Dashboard navigation">
+
+  <a href="../index.html" class="sidebar-header" aria-label="Shastra home">
+    <span class="sidebar-brand-om" aria-hidden="true">ॐ</span>
+    <span class="sidebar-brand-name">Sha<span>stra</span></span>
+  </a>
+
+  <div class="sidebar-profile">
+    <div class="sidebar-avatar" id="sidebar-avatar" aria-hidden="true">R</div>
+    <div>
+      <p class="sidebar-user-name">Loading…</p>
+      <p class="sidebar-user-role">student</p>
+    </div>
+  </div>
+
+  <nav>
+    <ul class="sidebar-nav" role="list">
+      <li><a href="dashboard.html" class="active"><span class="nav-icon">📊</span> Dashboard</a></li>
+      <li><a href="#"><span class="nav-icon">📚</span> Learn</a></li>
+      <li><a href="#"><span class="nav-icon">📈</span> Progress</a></li>
+      <li><a href="#"><span class="nav-icon">👤</span> Profile</a></li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="btn-logout" data-logout aria-label="Log out">
+      <span class="nav-icon">🚪</span> Log out
+    </button>
+  </div>
+
+</aside>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  MAIN CONTENT                                                           -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<main class="dashboard-main" id="dashboard-main">
+
+  <!-- Error banner -->
+  <div id="dashboard-error" class="dashboard-error" hidden role="alert"></div>
+
+  <!-- Welcome header -->
+  <header class="dash-welcome">
+    <div>
+      <h1 id="welcome-name">Welcome back!</h1>
+      <p class="date" id="today-date"></p>
+    </div>
+    <div class="streak-badge" aria-label="Current streak">
+      🔥 <span id="streak-count">—</span>-day streak
+    </div>
+  </header>
+
+  <!-- Quick stats row -->
+  <section aria-label="Quick statistics">
+    <div class="stats-row">
+      <div class="stat-tile reveal">
+        <div class="stat-tile-num" id="stat-tasks">—</div>
+        <div class="stat-tile-label">Tasks this week</div>
+      </div>
+      <div class="stat-tile reveal reveal-delay-1">
+        <div class="stat-tile-num" id="stat-monthly">—</div>
+        <div class="stat-tile-label">Tasks this month</div>
+      </div>
+      <div class="stat-tile reveal reveal-delay-2">
+        <div class="stat-tile-num" id="stat-total">—</div>
+        <div class="stat-tile-label">Tasks all time</div>
+      </div>
+      <div class="stat-tile reveal reveal-delay-3">
+        <div class="stat-tile-num" id="stat-points">—</div>
+        <div class="stat-tile-label">Total points</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Metrics -->
+  <section class="metrics-section" aria-labelledby="metrics-heading">
+    <h2 class="dash-section-title" id="metrics-heading">Your Five Qualities</h2>
+
+    <!-- 4-card grid (concentration / self-reliance / perseverance / confidence) -->
+    <div class="metrics-grid-4" id="metrics-grid" role="list" aria-label="Individual metrics">
+      <!-- Injected by metrics-display.js -->
+      <div class="metric-card" style="display:flex;align-items:center;justify-content:center;min-height:140px;">
+        <p style="color:var(--text-muted);font-size:0.875rem;">Loading metrics…</p>
+      </div>
+    </div>
+
+    <!-- Character (composite) card -->
+    <div class="character-card" id="character-card" role="region" aria-label="Character score">
+      <div class="character-inner">
+        <p style="color:rgba(255,255,255,0.4);font-size:0.875rem;">Loading character score…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activity + Tasks row -->
+  <div class="dash-bottom">
+
+    <!-- Recent activity -->
+    <section class="activity-card" aria-labelledby="activity-heading">
+      <h2 class="dash-section-title" id="activity-heading">Recent Activity</h2>
+      <div id="activity-list" aria-live="polite">
+        <p class="activity-empty">Loading activity…</p>
+      </div>
+    </section>
+
+    <!-- Start next task -->
+    <section class="tasks-card" aria-labelledby="tasks-heading">
+      <h2 class="dash-section-title" id="tasks-heading">Continue Learning</h2>
+      <p style="color:var(--text-muted);font-size:var(--text-sm);margin-bottom:var(--space-6);">
+        Tasks and assignments will appear here in Phase 4.
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+        <div style="padding:var(--space-4);border:1px solid var(--border);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <p style="font-weight:600;font-size:var(--text-sm);">📐 Algebra Practice</p>
+            <p style="font-size:var(--text-xs);color:var(--text-muted);">Math · 15 min · 50 pts</p>
+          </div>
+          <button class="btn btn-primary" style="height:36px;padding:0 1rem;font-size:0.8rem;" disabled>Coming soon</button>
+        </div>
+        <div style="padding:var(--space-4);border:1px solid var(--border);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <p style="font-weight:600;font-size:var(--text-sm);">📖 English Comprehension</p>
+            <p style="font-size:var(--text-xs);color:var(--text-muted);">English · 20 min · 40 pts</p>
+          </div>
+          <button class="btn btn-primary" style="height:36px;padding:0 1rem;font-size:0.8rem;" disabled>Coming soon</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<script src="../js/config.js"></script>
+<script src="../js/metrics-display.js"></script>
+<script src="../js/dashboard.js"></script>
+
+</body>
+</html>

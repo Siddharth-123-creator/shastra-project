@@ -1,14 +1,16 @@
-// Shastra Platform - Phase 2: Authentication
+// Shastra Platform - Phase 3: Student Dashboard
 // Main Express server entry point
 
-const express     = require('express');
-const cors        = require('cors');
-const bodyParser  = require('body-parser');
-const dotenv      = require('dotenv');
-const connectDB   = require('./config/database');
+const express      = require('express');
+const cors         = require('cors');
+const bodyParser   = require('body-parser');
+const dotenv       = require('dotenv');
+const connectDB    = require('./config/database');
 const errorHandler = require('./middleware/errorHandler');
-const healthRoutes = require('./routes/health');
-const authRoutes   = require('./routes/auth');
+const healthRoutes  = require('./routes/health');
+const authRoutes    = require('./routes/auth');
+const metricsRoutes = require('./routes/metrics');
+const studentsRoutes = require('./routes/students');
 
 dotenv.config();
 
@@ -16,10 +18,8 @@ const app  = express();
 const PORT = process.env.PORT || 5001;
 
 // ── Database ───────────────────────────────────────────────────────────────
-// Connect to MongoDB; non-blocking – server still starts if DB is down,
-// but auth endpoints will error until the connection succeeds.
 connectDB().catch(() => {
-  console.warn('⚠️  Running without database – auth endpoints will fail.');
+  console.warn('⚠️  Running without database – auth/metrics endpoints will fail.');
 });
 
 // ── Middleware ─────────────────────────────────────────────────────────────
@@ -34,10 +34,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // ── Routes ─────────────────────────────────────────────────────────────────
-app.use('/api/health', healthRoutes);
-app.use('/api/auth',   authRoutes);
+app.use('/api/health',   healthRoutes);
+app.use('/api/auth',     authRoutes);
+app.use('/api/metrics',  metricsRoutes);
+app.use('/api/students', studentsRoutes);
 
-// ── Error handler (must be last) ───────────────────────────────────────────
+// ── Error handler ──────────────────────────────────────────────────────────
 app.use(errorHandler);
 
 // ── Start ──────────────────────────────────────────────────────────────────
