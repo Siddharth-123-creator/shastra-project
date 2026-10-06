@@ -1,113 +1,152 @@
 /* Shastra Platform - Phase 1: Foundation */
-/* responsive.css – mobile-first breakpoint overrides */
+/* responsive.css – mobile-first breakpoints */
 
-/* ── Mobile (default, < 480px) is handled in theme.css / homepage.css ──────── */
+/* ── Tablet (≥ 640px) ─────────────────────────────────────────────────────── */
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--space-8);
+  }
 
-/* ── Small tablet (≥ 480px) ─────────────────────────────────────────────────── */
-@media (min-width: 480px) {
-  .hero-title {
-    font-size: var(--text-6xl);
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* ── Tablet (≥ 768px) ───────────────────────────────────────────────────────── */
-@media (min-width: 768px) {
+/* ── Desktop (≥ 1024px) ───────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
   .container {
-    padding: 0 2rem;
+    padding: 0 var(--space-10);
   }
 
-  .hero-portrait {
-    width: 200px;
-    height: 200px;
-  }
-
-  .om-symbol {
-    font-size: 6rem;
-  }
-
-  .features-grid {
+  .metrics-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  .quote-text {
-    font-size: var(--text-3xl);
+/* ── Mobile (< 640px) ─────────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Nav */
+  .navbar-nav,
+  .navbar-actions .btn-outline {
+    display: none;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+  }
+
+  .navbar-nav.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    left: 0; right: 0;
+    background-color: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(12px);
+    padding: var(--space-4) var(--space-5) var(--space-6);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    gap: var(--space-1);
+    z-index: 199;
+  }
+
+  .navbar-nav.open li { width: 100%; }
+  .navbar-nav.open a  { display: block; padding: var(--space-3) var(--space-4); }
+
+  /* Hero */
+  .hero .container {
+    grid-template-columns: 1fr;
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+    gap: var(--space-10);
+  }
+
+  .hero-visual { order: -1; }
+
+  .hero-card { max-width: 320px; padding: var(--space-8); }
+
+  .hero-om { font-size: 3.5rem; }
+
+  .hero-cta .btn { width: 100%; justify-content: center; }
+  .hero-cta      { flex-direction: column; }
+
+  /* Why */
+  .why .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  /* Metrics */
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Stats */
+  .why-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card:first-child {
+    grid-column: span 1;
   }
 }
 
-/* ── Desktop (≥ 1024px) ─────────────────────────────────────────────────────── */
-@media (min-width: 1024px) {
-  .features-grid {
-    grid-template-columns: repeat(5, 1fr);
+/* ── Mid-range tablet (640px – 1023px) ───────────────────────────────────── */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
   }
 
-  .hero-title {
-    font-size: clamp(3rem, 5vw, 4.5rem);
+  .hero-visual {
+    order: -1;
+    justify-content: center;
+  }
+
+  .hero-card { max-width: 400px; }
+
+  .why .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-brand {
+    grid-column: span 2;
   }
 }
 
-/* ── Wide desktop (≥ 1280px) ────────────────────────────────────────────────── */
-@media (min-width: 1280px) {
-  .container {
-    padding: 0 3rem;
-  }
-}
-
-/* ── Reduced motion ─────────────────────────────────────────────────────────── */
+/* ── Reduced motion ───────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .om-symbol,
-  .hero-scroll-hint {
+  .hero-om,
+  .navbar-brand .brand-om {
     animation: none;
   }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   * {
     transition-duration: 0.01ms !important;
-  }
-}
-
-/* ── Hamburger menu for mobile nav ─────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .navbar-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background-color: var(--maroon-dark);
-    padding: 1rem;
-    gap: 0.75rem;
-    box-shadow: 0 4px 16px var(--shadow-strong);
-  }
-
-  .navbar-links.open {
-    display: flex;
-  }
-
-  .navbar-hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0.25rem;
-  }
-
-  .navbar-hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--cream);
-    border-radius: 2px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .navbar-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .navbar-hamburger.active span:nth-child(2) { opacity: 0; }
-  .navbar-hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-}
-
-@media (min-width: 601px) {
-  .navbar-hamburger {
-    display: none;
+    animation-duration: 0.01ms !important;
   }
 }

@@ -4,30 +4,25 @@
 'use strict';
 
 const SHASTRA_CONFIG = Object.freeze({
-  // Base URL for the Express API. Change to the production URL before deploying.
-  API_BASE_URL: 'http://localhost:5000/api',
+  API_BASE_URL: 'http://localhost:5001/api',
 
-  // Named API endpoints – centralised here so a URL change only touches one file
   ENDPOINTS: {
     HEALTH:   '/health',
-    LOGIN:    '/auth/login',    // Phase 2
-    REGISTER: '/auth/register'  // Phase 2
+    LOGIN:    '/auth/login',
+    REGISTER: '/auth/register'
   },
 
-  // Application metadata
   APP_NAME:    'Shastra',
   APP_VERSION: '1.0.0',
   APP_PHASE:   'Phase 1 – Foundation',
 
-  // The five core metrics tracked by the platform
   METRICS: [
-    { key: 'concentration', label: 'Concentration', icon: '🧘', description: 'Sustained focus and deep attention' },
-    { key: 'selfReliance',  label: 'Self-Reliance',  icon: '💪', description: 'Independence and inner strength' },
-    { key: 'perseverance',  label: 'Perseverance',   icon: '🧗', description: 'Steady climb through challenges' },
-    { key: 'confidence',    label: 'Confidence',     icon: '⭐', description: 'Belief in your own potential' },
-    { key: 'character',     label: 'Character',      icon: '❤️', description: 'Virtue, integrity, and values' }
+    { key: 'concentration', label: 'Concentration', icon: '🧘', description: 'Sustained focus and deep attention across difficult tasks.' },
+    { key: 'selfReliance',  label: 'Self-Reliance',  icon: '💪', description: 'Independence, inner strength, and ownership of your growth.' },
+    { key: 'perseverance',  label: 'Perseverance',   icon: '🧗', description: 'Steady, consistent effort through every challenge.' },
+    { key: 'confidence',    label: 'Confidence',     icon: '⭐', description: 'Earned belief in your own capabilities and voice.' },
+    { key: 'character',     label: 'Character',      icon: '❤️', description: 'Integrity, virtue, and the values you live every day.' }
   ]
 });
 
-// Make globally accessible for other scripts
 window.SHASTRA_CONFIG = SHASTRA_CONFIG;

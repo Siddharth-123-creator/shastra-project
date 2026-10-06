@@ -1,153 +1,246 @@
 <!DOCTYPE html>
 <!-- Shastra Platform - Phase 1: Foundation -->
-<html lang="en" data-theme="">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shastra – Awakening Human Potential. A Vivekananda-inspired education platform that measures what matters." />
+  <meta name="description" content="Shastra – measure what matters. A Vivekananda-inspired education platform tracking the five qualities of human excellence." />
+  <title>Shastra – Measure What Matters</title>
 
-  <title>Shastra – Awakening Human Potential</title>
-
-  <!-- Stylesheets (order matters: tokens → components → responsive) -->
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/homepage.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
 
-  <!-- ── Navigation ─────────────────────────────────────────────────────── -->
-  <header>
-    <nav class="navbar" aria-label="Main navigation">
-      <div class="container">
-        <a href="/" class="navbar-brand" aria-label="Shastra home">
-          <span class="om" aria-hidden="true">ॐ</span>
-          Shastra
-        </a>
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  NAVBAR                                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<header>
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container">
 
-        <!-- Hamburger button (visible on mobile only via responsive.css) -->
+      <a href="/" class="navbar-brand" aria-label="Shastra home">
+        <span class="brand-om" aria-hidden="true">ॐ</span>
+        <span class="brand-name">Sha<span>stra</span></span>
+      </a>
+
+      <ul class="navbar-nav" id="navbar-nav" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#metrics">Features</a></li>
+        <li><a href="#why">Philosophy</a></li>
+      </ul>
+
+      <div class="navbar-actions">
+        <a href="/login" class="btn btn-primary">Get Started</a>
         <button
           class="navbar-hamburger"
-          id="navbar-hamburger"
-          aria-controls="navbar-links"
+          id="hamburger-btn"
+          aria-controls="navbar-nav"
           aria-expanded="false"
-          aria-label="Toggle navigation menu"
+          aria-label="Toggle menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
+      </div>
 
-        <!-- Desktop + mobile (toggled) nav links -->
-        <ul class="navbar-links" id="navbar-links">
-          <li><a href="#features">About</a></li>
-          <li><a href="/login" class="btn btn-primary">Login</a></li>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  HERO                                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="hero" id="about" aria-labelledby="hero-heading">
+  <div class="container">
+
+    <!-- Left: text -->
+    <div class="hero-text">
+      <div class="hero-eyebrow" aria-hidden="true">
+        ✦ &nbsp;Inspired by Swami Vivekananda
+      </div>
+
+      <h1 class="hero-title" id="hero-heading">
+        Measure<br />
+        <span class="accent">What Matters</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Growth through real metrics, not gamification.
+        Shastra tracks the five inner qualities that determine
+        long-term success — and helps you build them daily.
+      </p>
+
+      <div class="hero-cta">
+        <a href="/login" class="btn btn-primary">Start Learning →</a>
+        <a href="#metrics" class="btn btn-outline">See the metrics</a>
+      </div>
+
+      <div class="api-status-wrap">
+        <span id="api-status" role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="status-label">Connecting to API…</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Right: visual card -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card">
+        <span class="hero-om">ॐ</span>
+        <p class="hero-card-title">Shastra Dashboard</p>
+        <p class="hero-card-sub">
+          "Arise, awake, and stop not till the goal is reached."
+        </p>
+        <div class="hero-metric-pills">
+          <span class="hero-metric-pill">🧘 Concentration</span>
+          <span class="hero-metric-pill">💪 Self-Reliance</span>
+          <span class="hero-metric-pill">🧗 Perseverance</span>
+          <span class="hero-metric-pill">⭐ Confidence</span>
+          <span class="hero-metric-pill">❤️ Character</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  METRICS                                                                -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="metrics" id="metrics" aria-labelledby="metrics-heading">
+  <div class="container">
+
+    <header class="metrics-header reveal">
+      <span class="section-tag">Core metrics</span>
+      <h2 class="section-heading" id="metrics-heading">
+        5 Qualities We Measure
+      </h2>
+      <p class="section-subheading">
+        Real growth indicators rooted in Vivekananda's philosophy of
+        education — cultivating the whole person, not just exam scores.
+      </p>
+    </header>
+
+    <!--
+      Cards are injected here by homepage.js (from SHASTRA_CONFIG.METRICS)
+      so the config file stays the single source of truth.
+    -->
+    <div class="metrics-grid" id="metrics-grid" role="list" aria-label="Core metrics"></div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  WHY SHASTRA                                                            -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="why" id="why" aria-labelledby="why-heading">
+  <div class="container">
+
+    <!-- Left: text -->
+    <div class="why-text reveal">
+      <span class="section-tag">Philosophy</span>
+      <h2 class="section-heading" id="why-heading">
+        Education that builds the person, not just the résumé
+      </h2>
+      <p class="section-subheading">
+        Vivekananda believed education is the manifestation of the perfection
+        already within. Shastra turns that philosophy into daily, measurable
+        practice — giving students and teachers a shared language for growth.
+      </p>
+
+      <blockquote class="why-quote">
+        <p>
+          "Education is not the amount of information that is put into your
+          brain and runs riot there, undigested, all your life. We must have
+          life-building, man-making, character-making assimilation of ideas."
+        </p>
+        <cite>— Swami Vivekananda</cite>
+      </blockquote>
+    </div>
+
+    <!-- Right: stats -->
+    <div class="why-stats reveal reveal-delay-2">
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Core Qualities Tracked</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10k+</div>
+        <div class="stat-label">Students (projected)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">99%</div>
+        <div class="stat-label">Engagement Rate</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  FOOTER                                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="/" class="navbar-brand" aria-label="Shastra home">
+          <span class="brand-om" aria-hidden="true">ॐ</span>
+          <span class="brand-name">Sha<span>stra</span></span>
+        </a>
+        <p>
+          An education platform that measures what matters — built on the
+          timeless philosophy of Swami Vivekananda.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <nav class="footer-col" aria-label="Site links">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#metrics">Features</a></li>
+          <li><a href="#why">Philosophy</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+
+      <!-- Social / Contact -->
+      <div class="footer-col">
+        <h4>Project</h4>
+        <ul>
+          <li><a href="https://github.com/Siddharth-123-creator/shastra-project" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="docs/ARCHITECTURE.md">Architecture</a></li>
+          <li><a href="docs/PHASES.md">Roadmap</a></li>
+          <li><a href="docs/SETUP.md">Setup guide</a></li>
         </ul>
       </div>
-    </nav>
-  </header>
 
-  <!-- ── Hero section ────────────────────────────────────────────────────── -->
-  <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
+    </div>
 
-        <!-- Portrait / Om symbol -->
-        <div class="hero-portrait-wrap" aria-hidden="true">
-          <img
-            src="assets/vivekananda.svg"
-            alt="Swami Vivekananda – founder of our guiding philosophy"
-            class="hero-portrait"
-            width="160"
-            height="160"
-            loading="eager"
-          />
-        </div>
-
-        <!-- Headline -->
-        <h1 class="hero-title" id="hero-title">
-          <span>Shastra</span> —<br />Awakening Human Potential
-        </h1>
-
-        <!-- Tagline -->
-        <p class="hero-tagline">
-          "Measure what matters. Grow what's real."
-        </p>
-
-        <!-- Call to action -->
-        <div class="hero-cta">
-          <a
-            href="/login"
-            class="btn btn-primary"
-            id="btn-get-started"
-            aria-label="Get started with Shastra"
-          >
-            Get Started ↗
-          </a>
-          <a href="#features" class="btn btn-outline">Learn More</a>
-        </div>
-
-        <!-- Live API connectivity badge (updated by homepage.js) -->
-        <div id="api-status" role="status" aria-live="polite">
-          <span class="dot"></span> Checking API…
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ── Five Metrics / Features ──────────────────────────────────────── -->
-    <section class="features" id="features" aria-labelledby="features-title">
-      <div class="container">
-        <span class="section-label">Core Metrics</span>
-        <h2 class="section-title" id="features-title">Five Pillars of Human Excellence</h2>
-        <p class="section-subtitle">
-          Vivekananda taught that true education develops the whole person.
-          Shastra tracks and nurtures five dimensions of that growth.
-        </p>
-
-        <!--
-          Feature cards are rendered dynamically by homepage.js
-          from SHASTRA_CONFIG.METRICS so the data lives in one place.
-        -->
-        <div class="features-grid" id="features-grid" role="list" aria-label="Core metrics">
-          <!-- JavaScript will inject cards here -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Vivekananda quote ─────────────────────────────────────────────── -->
-    <section class="quote-section" aria-label="Inspirational quote">
-      <div class="container">
-        <blockquote>
-          <p class="quote-text">
-            "Arise, awake, and stop not till the goal is reached."
-          </p>
-          <footer class="quote-author">— Swami Vivekananda</footer>
-        </blockquote>
-      </div>
-    </section>
-  </main>
-
-  <!-- ── Footer ───────────────────────────────────────────────────────────── -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
+    <div class="footer-bottom">
       <p class="footer-quote">
         "All the powers in the universe are already ours. It is we who have put our hands before our eyes and cry that it is dark."
       </p>
       <p class="footer-copy">
-        &copy; <span id="footer-year"></span> Shastra Platform &middot; Built with purpose
+        &copy; <span id="footer-year"></span> Shastra Platform
       </p>
     </div>
-  </footer>
 
-  <!-- ── Scripts ──────────────────────────────────────────────────────────── -->
-  <!-- config.js must load before homepage.js (sets window.SHASTRA_CONFIG) -->
-  <script src="js/config.js"></script>
-  <script src="js/homepage.js"></script>
+  </div>
+</footer>
 
-  <!-- Inline micro-script: set footer year without a round-trip -->
-  <script>
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-  </script>
+<!-- Scripts: config must load before homepage.js -->
+<script src="js/config.js"></script>
+<script src="js/homepage.js"></script>
 
 </body>
 </html>
